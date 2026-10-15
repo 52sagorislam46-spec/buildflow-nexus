@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, Check, Clock3, Lightbulb, Play, RotateCcw, SkipForward, Trophy, Volume2, VolumeX, X } from 'lucide-react';
+import { Check, Clock3, Lightbulb, Play, RotateCcw, SkipForward, Trophy, Volume2, VolumeX, X } from 'lucide-react';
+import { BackButton } from '@/components/game/back-button';
 import { Button } from '@/components/ui/button';
 import { computeScore, grade, makeDeck, MODE_TIME, optionLabel, SUBJECTS, type BcsQuestion, type Outcome, type QuizMode } from '@/lib/bcs-questions';
 import { addRecord, emptyStats, loadStats, saveStats, type QuizStats } from '@/lib/bcs-stats';
@@ -102,7 +103,7 @@ function BcsQuiz() {
   return <div className="min-h-screen bg-background text-foreground">
     <div className="mx-auto max-w-2xl px-4 py-6">
       <div className="mb-6 flex items-center justify-between">
-        <Button asChild variant="ghost"><Link to="/study"><ArrowLeft /> হোম</Link></Button>
+        <BackButton />
         <h1 className="text-xl font-bold">BCS কুইজ চ্যালেঞ্জ</h1>
         <Button variant="ghost" size="icon" onClick={() => setMuted(m => !m)} aria-label={muted ? 'সাউন্ড চালু' : 'সাউন্ড বন্ধ'}>{muted ? <VolumeX /> : <Volume2 />}</Button>
       </div>
